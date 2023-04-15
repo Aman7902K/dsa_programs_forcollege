@@ -25,24 +25,25 @@ void enqueue(struct queue *q,int val){
     else{
         q->rear++;
         q->ar[q->rear]=val;
-        printf("The inserted element is:%d\n",val);
+        // printf("The inserted element is:%d\n",val);
     }
 } 
 void dequeue(struct queue *q){
     int a=-1;
-    if(isfull(q)){
+    if(isemp(q)){
         printf("underflow\n");
     }
     else{
         q->front++;
         a=q->ar[q->front];
+        printf("the dequed element is %d\n",a);
     }
-    printf("the dequed element is %d\n",a);
+    
 }
-void display(struct queue *q){
+void display(struct queue *q,int rn){
     printf("the resulant array is :\n");
-    for(int i=0;i<q->rear;i++){
-        printf(q->ar[q->front]);
+    for(int i=rn;i<=q->rear;i++){
+        printf("%d",q->ar[i]);
     }
 }
 int main()
@@ -54,8 +55,8 @@ int main()
     int el,i,o;
     printf("enter the size of the array\n");
     scanf("%d",&o);
+    printf("enter the elements to be inserted in queue\n");
     for(i=0;i<o;i++){
-    printf("enter the element to be inserted in queue\n");
     scanf("%d",&el);
     enqueue(&q,el);
     }
@@ -65,12 +66,6 @@ int main()
     {
         dequeue(&q);
     }
-    display(&q);
-    if(isemp(&q)){
-        printf("queue is empty\n");
-    }
-    if(isfull(&q)){
-        printf("queue is full\n");
-    }
+    display(&q,o);
 return 0;
 }
