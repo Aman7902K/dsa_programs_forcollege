@@ -17,27 +17,26 @@ int isFull(struct node * head){
     }
     return 0;
 }
-struct node * push(struct node * head,int el){
-    
-    if(isFull(head))
+struct node * push(struct node** head,int el){
+    struct node* ptr=(struct node*)malloc(sizeof(struct node));
+    if(ptr==NULL)
     {
         printf("overflow\n");
     }
     else{
-        struct node * ptr=(struct node *)malloc(sizeof(struct node));
         ptr->data=el;
-        ptr->next=head;
-        head=ptr;
-        return head;
+        ptr->next=*head;
+        *head=ptr;
+        return *head;
     }
 }
-struct node * pop(struct node * top){
-    if(isemp(top)){
+int pop(struct node** top){
+    if(isemp(*top)){
         printf("underflow\n");
     }
     else{
-        struct node  * ptr = top;
-        top=top->next;
+        struct node  * ptr = *top;
+        *top=(*top)->next;
         int x=ptr->data;
         free(ptr);
         return x;
@@ -53,12 +52,25 @@ void traverse(struct node *ptr)
 }
 int main()
 {
-    struct node * top=NULL;     
-    top=push(top,54);
-    top=push(top,32);
-    top=push(top,322);
+    struct node * top=NULL;  
+    int i,n,el,x,m;
+    printf("enter the no. of elements to be inserted in stack\n");
+    scanf("%d",&n);
+    for ( i = 0; i < n; i++)
+    {
+        scanf("%d",&el);
+        top=push(&top,el);
+    }
+    printf("the stack is\n");
+
     traverse(top);
-    int x=pop(top);
-    printf("%d",x);
+    scanf("%d",&m);
+
+    for ( i = 0; i < m; i++)
+    {
+        x=pop(&top);
+    }
+    printf("stack after popping the element(s)\n");
+    traverse(top);
 return 0;
 }
