@@ -46,15 +46,6 @@ void inorder(struct node* ptr)
         inorder(ptr->right);
     }
 }
-void preorder(struct node* ptr)
-{
-    if (ptr != NULL)
-    {
-        printf("%d ", ptr->data);
-        preorder(ptr->left);
-        preorder(ptr->right);
-    }
-}
 
 int main()
 {

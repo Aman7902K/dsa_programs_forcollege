@@ -17,14 +17,13 @@ void print_array(int *arr, int s)
 int binary_search(int arr[] ,int n,int el){
     int l=0;
     int r=n-1;
-    int mid,mid_val;
+    int mid;
     while(l<=r){
         mid = l+(r-l)/2;
-        mid_val=arr[mid];
-        if(el==mid_val){
+        if(el==arr[mid]){
             return mid;
         }
-        else if(el>mid_val){
+        else if(el>arr[mid]){
             l=mid+1;
         }
         else{

@@ -32,6 +32,7 @@ int arr[56],s,x,se;
 printf("enter the size of the array\n");
 scanf("%d",&s);
 read_array(arr,s);
+printf("The array is\n");
 print_array(arr,s);
 printf("enter the element to be searched\n");
 scanf("%d",&se);
