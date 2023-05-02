@@ -14,8 +14,9 @@ int main()
     do{
     cout<<"Enter the Roll Number of the student\n";   
     cin>>st.roll;
+    cin.ignore();
     cout<<"Enter the name of the student\n";
-    cin>>st.name;
+    getline(cin, st.name);
     cout<<"Enter the course in which the student enrolled in\n";
     cin>>st.course;
     cout<<"Enter the age of the student\n";

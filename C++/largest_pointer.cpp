@@ -24,9 +24,9 @@ class largest{
             }
             return arr[max];
         }
-        // ~largest(){
-        //     delete[] arr;
-        // }
+        ~largest(){
+            delete[] arr;
+        }
 };  
 int main()
 {
